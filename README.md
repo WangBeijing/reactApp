@@ -1,11 +1,10 @@
-## 技术站:
+## 技术栈:
 
->  前端：react + react-router + redux + ES6/7 + webpack + axios 
+>  前端：react + react-router + redux + ES6/7 + webpack + [axios](https://www.npmjs.com/package/axios)
 
 >  后台：node express
 
 >  数据库： mongodb 可视化工具 Robo T3
-
 
 ## 本地启动mongodb数据库服务端
 

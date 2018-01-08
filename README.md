@@ -33,6 +33,7 @@ node server/server.js
 ## 工具介绍
 
 >  **nodemon**
+
 	- 修改了服务端代码，node**服务器会自动重启**。安装`npm install -g nodemon`,输入`nodemon server.js`
 
 ## 后台mongodb数据库

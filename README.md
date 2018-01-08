@@ -7,6 +7,6 @@
 - 首先需要连接到MongoDB service:
   - `mongo`
 - 插入数据:
-  - `db.test.insert({'name':'test'})`
+  - `db.test.insert({'name':'test'})` test为表名，如果是user表则为`db.user.insert()`
 - 查看数据:
   - `db.test.find()`

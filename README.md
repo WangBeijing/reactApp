@@ -34,7 +34,7 @@ node server/server.js
 
 >  **nodemon**
 
-	- 修改了服务端代码，node**服务器会自动重启**。安装`npm install -g nodemon`,输入`nodemon server.js`
+- 修改了服务端代码，node**服务器会自动重启**。安装`npm install -g nodemon`,输入`nodemon server.js`
 
 ## 后台mongodb数据库
 
@@ -55,3 +55,4 @@ node server/server.js
 ```
 "proxy": "http://localhost:9093"
 ```
+[x]

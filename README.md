@@ -1,7 +1,9 @@
 ## 技术站:
 
 >  前端：react + react-router + redux + ES6/7 + webpack + axios 
+
 >  后台：node express
+
 >  数据库： mongodb 可视化工具 Robo T3
 
 
@@ -19,8 +21,8 @@
 
 ![](https://github.com/WangBeijing/reactApp/blob/master/src/component/login/job.png)
 
-### 本地web端端口号3000请求本地服务器端口号9092
->  使用proxy解决跨域问题
+###   使用proxy解决前后端跨域问题
+>  本地web端`localhost:3000/login` 请求本地服务器API `http://localhost:9093/user/list`
 ```
 "proxy": "http://localhost:9093"
 ```

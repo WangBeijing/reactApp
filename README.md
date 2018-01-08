@@ -19,15 +19,21 @@ npm install
 
 npm start //启动项目
 
+//本地访问 localhost:3000/login
+
 ```
-访问：[localhost:3000/login](https://www.npmjs.com/package/axios)
-[aaa](127.0.0.1:3000/login)
+
 ### 启动后台
 ```
 cd reactApp
 
 node server/server.js
 ```
+
+## 工具介绍
+
+* 使用nodemon让node重启
+	- 修改了服务端代码，node**服务器会自动重启**。安装`npm install -g nodemon`,输入`nodemon server.js`
 
 ## 后台mongodb数据库
 

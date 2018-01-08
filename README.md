@@ -1,3 +1,9 @@
+## 技术站:
+
+>  前端：react + react-router + redux + ES6/7 + webpack + axios 
+>  后台：node express
+>  数据库： mongodb 可视化工具 Robo T3
+
 
 ## 本地启动mongodb数据库服务端
 
@@ -10,3 +16,11 @@
   - `db.test.insert({'name':'test'})` test为表名，如果是user表则为`db.user.insert()`
 - 查看数据:
   - `db.test.find()`
+
+![](https://github.com/WangBeijing/reactApp/blob/master/src/component/login/job.png)
+
+### 本地web端端口号3000请求本地服务器端口号9092
+>  使用proxy解决跨域问题
+```
+"proxy": "http://localhost:9093"
+```

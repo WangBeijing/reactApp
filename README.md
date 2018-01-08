@@ -7,6 +7,7 @@
 >  数据库： mongodb 可视化工具 Robo T3
 
 ## 项目运行:
+
 ### 启动前端
 
 ```
@@ -16,9 +17,10 @@ cd reactApp
 
 npm install 
 
-npm start 
+npm start //启动项目
 
 ```
+访问：[localhost:3000/login](localhost:3000/login)
 ### 启动后台
 ```
 cd reactApp

@@ -11,8 +11,9 @@
 ### 启动前端
 
 ```
+# 克隆项目
 git clone https://github.com/WangBeijing/reactApp.git
-
+# 进入目录
 cd reactApp
 
 npm install

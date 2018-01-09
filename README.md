@@ -61,6 +61,6 @@ node server/server.js
   - `db.test.find()`
 
 ![](https://github.com/WangBeijing/reactApp/blob/master/src/component/login/job.png)
-
+![](https://github.com/WangBeijing/reactApp/blob/master/src/component/img/boy.png)
 
 [x]

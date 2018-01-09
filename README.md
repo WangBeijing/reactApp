@@ -13,9 +13,9 @@
 ```
 git clone https://github.com/WangBeijing/reactApp.git
 
-cd reactApp 
+cd reactApp
 
-npm install 
+npm install
 
 npm start //启动项目
 
@@ -34,7 +34,14 @@ node server/server.js
 
 >  **nodemon**
 
-- 修改了服务端代码，node**服务器会自动重启**。安装`npm install -g nodemon`,输入`nodemon server.js`
+- 修改了服务端代码，node**服务器会自动重启**。
+- 安装`npm install -g nodemon`,输入`nodemon server.js`
+
+>  **utility**
+
+- 本项目使用后台md5加密,加密方式：密码加盐再加密，加密算法为md5(md5(密码+String))
+- `npm install utility --save-dev`
+- 当然在公司项目确保安全性前端将密码加密一次再发送服务端。
 
 ## 后台mongodb数据库
 

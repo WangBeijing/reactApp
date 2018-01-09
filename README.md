@@ -50,18 +50,18 @@ node server/server.js
 
 > **cookie保存登录状态**
 
-- 登录后服务端返回cookie，浏览器会自动存储在http中，这样就可以访问资源了
-- `express`依赖`cookie-paerser`,安装`npm install cookie-parser --save`
+- 登录后服务端返回`cookie`，浏览器会自动存储在http中，这样就可以访问资源了
+- `express`依赖`cookie-parser`,安装`npm install cookie-parser --save`
 - 登录时，服务端在DB中查到相应的记录，并将记录的主键id写入到cookie中返回给前端作为通信状态标识。
   ```
-  User.findOne({user, pwd}, function(err, doc){
+  User.findOne({user, pwd},{'pwd': 0}, function(err, doc){
     if(err){}
     if(!doc){}
     res.cookie('userid', doc._id)
     return res.json({code:0, data.doc})
     })
   ```
-- 登录成功后，服务端会检查request中cookie(token)，做访问资源受限。
+- 登录成功后，服务端会检查`request`中`cookie(token)`，做访问资源受限。
   ```
   Router.get('/info', function(req, res){
       const { userid } = req.cookies;

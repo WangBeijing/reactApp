@@ -43,6 +43,11 @@ node server/server.js
 - `npm install utility --save-dev`
 - 当然在公司项目确保安全性前端将密码加密一次再发送服务端。
 
+> **proxy解决跨域**
+
+- 在`package.json`文件下设置`"proxy": "http://localhost:9093"`
+- web端`localhost:3000/login` 请求本地服务API `http://localhost:9093/user/login`
+
 ## 后台mongodb数据库
 
 - 按照默认的配置文件启动.
@@ -58,7 +63,7 @@ node server/server.js
 ![](https://github.com/WangBeijing/reactApp/blob/master/src/component/login/job.png)
 
 ###   使用proxy解决前后端跨域问题
->  本地web端`localhost:3000/login` 请求本地服务器API `http://localhost:9093/user/login`
+>  本地
 ```
 "proxy": "http://localhost:9093"
 ```

@@ -17,9 +17,7 @@ cd reactApp
 
 npm install
 
-npm start //启动项目
-
-//本地访问 localhost:3000/login
+npm start //启动项目 本地访问 localhost:3000/login
 
 ```
 
@@ -81,9 +79,6 @@ node server/server.js
       })
   })
   ```
-
-
-
 
 ## 后台mongodb数据库
 

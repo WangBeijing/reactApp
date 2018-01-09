@@ -52,7 +52,8 @@ node server/server.js
 
 - 登录后服务端返回cookie，浏览器会自动存储在http中，这样就可以访问资源了
 - 安装`npm install cookie-parser --save`
-- ```
+- 服务端在DB中查到相应的记录，并将记录的主键id写入到cookie中返回给前端作为通信状态标识。
+  ```
   User.findOne({user, pwd}, function(err, doc){
     if(err){}
     if(!doc){}

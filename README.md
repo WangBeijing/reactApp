@@ -40,13 +40,29 @@ node server/server.js
 >  **utility**
 
 - 本项目使用后台md5加密,加密方式：密码加盐再加密，加密算法为md5(md5(密码+String))
-- `npm install utility --save-dev`
+- 安装`npm install utility --save-dev`
 - 当然在公司项目确保安全性前端将密码加密一次再发送服务端。
 
 > **proxy解决跨域**
 
 - 在`package.json`文件下设置`"proxy": "http://localhost:9093"`
 - web端`localhost:3000/login` 请求本地服务API `http://localhost:9093/user/login`
+
+> **cookie保存登录状态**
+
+- 登录后服务端返回cookie，浏览器会自动存储在http中，这样就可以访问资源了
+- 安装`npm install cookie-parser --save`
+- ```
+  User.findOne({user, pwd}, function(err, doc){
+    if(err){}
+    if(!doc){}
+    res.cookie('userid', doc._id)
+    return res.json({code:1, data.doc})
+    })
+  ```
+
+
+
 
 ## 后台mongodb数据库
 
@@ -60,7 +76,6 @@ node server/server.js
 - 查看数据:
   - `db.test.find()`
 
-![](https://github.com/WangBeijing/reactApp/blob/master/src/component/login/job.png)
 ![](https://github.com/WangBeijing/reactApp/blob/master/src/component/img/boy.png)
 
 [x]

@@ -61,6 +61,9 @@ node server/server.js
     return res.json({code:0, data.doc})
     })
   ```
+  ![](https://github.com/WangBeijing/reactApp/blob/master/images/F526BF61-40F0-49BF-A437-6846AA6F22AE.png)
+  ![](https://github.com/WangBeijing/reactApp/blob/master/images/WX20180109-161546%402x.png)
+
 - 登录成功后，服务端会检查`request`中`cookie(token)`，做访问资源受限。
   ```
   Router.get('/info', function(req, res){

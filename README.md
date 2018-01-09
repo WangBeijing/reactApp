@@ -62,9 +62,5 @@ node server/server.js
 
 ![](https://github.com/WangBeijing/reactApp/blob/master/src/component/login/job.png)
 
-###   使用proxy解决前后端跨域问题
->  本地
-```
-"proxy": "http://localhost:9093"
-```
+
 [x]

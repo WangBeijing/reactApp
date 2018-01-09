@@ -13,12 +13,15 @@
 ```
 # 克隆项目
 git clone https://github.com/WangBeijing/reactApp.git
+
 # 进入目录
 cd reactApp
 
+# 安装依赖
 npm install
 
-npm start //启动项目 本地访问 localhost:3000/login
+# 启动项目
+npm start // 本地访问 localhost:3000/login
 
 ```
 

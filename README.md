@@ -52,14 +52,31 @@ node server/server.js
 
 - 登录后服务端返回cookie，浏览器会自动存储在http中，这样就可以访问资源了
 - 安装`npm install cookie-parser --save`
-- 服务端在DB中查到相应的记录，并将记录的主键id写入到cookie中返回给前端作为通信状态标识。
+- 登录时，服务端在DB中查到相应的记录，并将记录的主键id写入到cookie中返回给前端作为通信状态标识。
   ```
   User.findOne({user, pwd}, function(err, doc){
     if(err){}
     if(!doc){}
     res.cookie('userid', doc._id)
-    return res.json({code:1, data.doc})
+    return res.json({code:0, data.doc})
     })
+  ```
+- 登录成功后，服务端会检查request中cookie(token)，做访问资源受限。
+  ```
+  Router.get('/info', function(req, res){
+      const { userid } = req.cookies;
+      if(!userid){
+        return res.json({code : 1});//没有userid
+      }
+      User.findOne({_id:userid},{'pwd': 0},function(err,doc){
+          if(err){
+            return res.json({code: 1, msg:'后端出错'})
+          }
+          if(doc){
+            return res.json({code: 0 , data:doc})
+          }
+      })
+  })
   ```
 
 

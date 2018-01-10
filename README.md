@@ -86,7 +86,7 @@ node server/server.js
 >  **prop-types**
 
 - 属性类型检测
-- 安装`npm install prop-types --save`,[用法](http://www.css88.com/react/docs/typechecking-with-proptypes.html)
+- 安装`npm install prop-types --save` [用法](http://www.css88.com/react/docs/typechecking-with-proptypes.html)
 - ```
   import PropTypes from 'prop-types';
   MyComponent.propTypes = {

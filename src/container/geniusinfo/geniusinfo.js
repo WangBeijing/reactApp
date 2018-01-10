@@ -9,15 +9,12 @@ import { Redirect } from 'react-router-dom'
   state=>state.user,
   { update }
 )
-class BoosInfo extends React.Component{
+class GeniusInfo extends React.Component{
     constructor(props){
         super(props)
         this.state = {
             title:'',
-            company:'',
-            money:'',
             desc:'',
-
         }
     }
     onChange(key, val){
@@ -34,7 +31,7 @@ class BoosInfo extends React.Component{
         return (
             <div>
             {redirect && redirect !== path?<Redirect to={this.props.redirectTo}></Redirect>:null}
-                <NavBar mode="dark">BOSS完善信息页面</NavBar>
+                <NavBar mode="dark">牛人完善信息页面</NavBar>
                 <AvatarSelector
                     selectAvatar={(imgname)=>{
                         this.setState({
@@ -43,17 +40,11 @@ class BoosInfo extends React.Component{
                     }}
                 ></AvatarSelector>
                 <InputItem onChange={(v)=>{this.onChange('title',v)}}>
-                招聘职位
-                </InputItem>
-                <InputItem onChange={(v)=>{this.onChange('company',v)}}>
-                公司名称
-                </InputItem>
-                <InputItem onChange={(v)=>{this.onChange('money',v)}}>
-                职位薪资
+                求职职位
                 </InputItem>
                 <TextareaItem rows={3} autoHeight title='职位要求'
                 onChange={(v)=>{this.onChange('desc',v)}}>
-                职位要求
+                个人简介
                 </TextareaItem>
                 <Button
                 onClick={()=>{
@@ -64,4 +55,4 @@ class BoosInfo extends React.Component{
         )
     }
 }
-export default BoosInfo;
+export default GeniusInfo;

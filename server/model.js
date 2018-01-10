@@ -19,7 +19,7 @@ const models = {
         'money':{type:String},
     },
     chat:{
-        
+
     }
 }
 //注册

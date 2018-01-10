@@ -21,10 +21,12 @@ Router.post('/update',function(req, res){
   const body = req.body;
   //查找id并更新body
   User.findByIdAndUpdate(userid, body, function(err, doc){
+    console.log(body)  
     const data = Object.assign({}, {
       user: doc.user,
       type: doc.type
     },body)
+    console.log(data)
     return res.json({code:0, data})
   })
 })

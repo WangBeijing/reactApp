@@ -27,15 +27,11 @@ export function user(state=initState, action){
             return state
     }
 }
-function authSuccess(data){
+function authSuccess(obj){
+    const { pwd, ...data} = obj;//过滤掉pwd
     return {type:AUTH_SUCCESS, payload:data}
 }
-// function registerSuccess(data){
-//     return {type:REGISTER_SUCCESS, payload:data}
-// }
-// function loginSuccess(data){
-//     return { type:LOGIN_SUCCESS, payload:data}
-// }
+
 function errorMsg(msg){
     return {msg, type:ERROR_MSG }
 }

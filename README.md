@@ -85,22 +85,8 @@ node server/server.js
   ```
 >  **prop-types**
 
-- 属性类型检测
-- 安装`npm install prop-types --save` [用法](http://www.css88.com/react/docs/typechecking-with-proptypes.html)
-- ```
-  import PropTypes from 'prop-types';
-  MyComponent.propTypes = {
-    // 你可以声明一个 prop 是一个特定的 JS 原始类型。 
-    // 默认情况下，这些都是可选的。
-    optionalArray: PropTypes.array,
-    optionalBool: PropTypes.bool,
-    optionalFunc: PropTypes.func,
-    optionalNumber: PropTypes.number,
-    optionalObject: PropTypes.object,
-    optionalString: PropTypes.string,
-    optionalSymbol: PropTypes.symbol,
-  }
-  ```
+- 属性类型检测,安装`npm install prop-types --save` [用法](http://www.css88.com/react/docs/typechecking-with-proptypes.html) 
+
 
 ## 后台mongodb数据库
 

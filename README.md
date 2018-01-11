@@ -91,7 +91,7 @@ node server/server.js
 
 - 前端工作流，创建自定义命令，npm run 执行自定义命令
 - 安装`cross-env`,`npm install cross-env --save-dev`,在`NODE_ENV=production`前面添加`cross-env`就可以了
--
+- 在js文件中使用`process.env.ENV_CONFIG`就可以接受自定义参数了。
   ```
   "scripts":{
     "dev": "node build/dev-server.js",

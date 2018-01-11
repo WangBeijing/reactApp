@@ -85,8 +85,20 @@ node server/server.js
   ```
 >  **prop-types**
 
-- 属性类型检测,安装`npm install prop-types --save` [用法](http://www.css88.com/react/docs/typechecking-with-proptypes.html) 
+- 属性类型检测,安装`npm install prop-types --save` [用法](http://www.css88.com/react/docs/typechecking-with-proptypes.html)
 
+> **npm script**
+
+- 前端工作流，创建自定义命令，npm run 执行自定义命令
+- 安装`cross-env`,`npm install cross-env --save-dev`,在`NODE_ENV=production`前面添加`cross-env`就可以了
+-
+  ```
+  "scripts":{
+    "dev": "node build/dev-server.js",
+    "build-dev": "cross-env NODE_ENV=production env_config=dev node build/build.js",//构建测试环境版本
+    "build-prod": "cross-env NODE_ENV=production env_config=pro node build/build.js",//构建正式环境版本
+  }
+  ```
 
 ## 后台mongodb数据库
 

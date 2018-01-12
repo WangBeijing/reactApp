@@ -14,8 +14,7 @@ const initState={
     type:'',
 }
 //reducer
-export function user(state=initState, action){
-    console.log(action)
+export function user(state=initState, action){    
     switch (action.type) {
         case AUTH_SUCCESS:
             return {...state, msg:'', redirectTo:getRedirectPath(action.payload),  ...action.payload}

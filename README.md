@@ -95,8 +95,8 @@ node server/server.js
   ```
   "scripts":{
     "dev": "node build/dev-server.js",
-    "build-dev": "cross-env NODE_ENV=production env_config=dev node build/build.js",//构建测试环境版本
-    "build-prod": "cross-env NODE_ENV=production env_config=pro node build/build.js",//构建正式环境版本
+    "build-dev": "cross-env NODE_ENV=production env_config=dev node build/build.js",//npm run build-dev构建测试环境
+    "build-prod": "cross-env NODE_ENV=production env_config=pro node build/build.js",//npm run build-prod构建正式环境版本
   }
   ```
 

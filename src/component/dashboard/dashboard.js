@@ -5,6 +5,7 @@ import  NavLinkBar from '../navlink/navlink';
 import {Switch, Route} from 'react-router-dom'
 import Boss from '../../component/boss/boss';
 import Genius from '../../component/genius/genius';
+import User  from '../../component/user/user';
 
 
 
@@ -12,9 +13,7 @@ import Genius from '../../component/genius/genius';
 function Msg(){
     return <h2>消息列表</h2>
 }
-function User(){
-    return <h2>个人中心</h2>
-}
+
 @connect(
     state=>state
 )

@@ -6,6 +6,17 @@ import {Redirect} from 'react-router-dom';
 
 import {login} from '../../redux/user.redux';
 
+class Hello extends React.Component{
+    render(){
+        return <h2>Hello i love react && redux</h2>
+    }
+}
+
+
+
+
+
+
 @connect(
     state=>state.user,
     {login}
@@ -36,7 +47,6 @@ class Login extends React.Component{
         return (
             <div> 
                 {this.props.redirectTo?<Redirect to={this.props.redirectTo} />:null}
-
                 <Logo></Logo> 
                 <WingBlank>
                     <List>

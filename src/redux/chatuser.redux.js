@@ -17,7 +17,6 @@ export function chatuser(state=initState, action){
 }
 
 function  userList(data){
-    console.log(data)
     return {type:USER_LIST, payload:data}
 }
 
@@ -26,7 +25,7 @@ function  userList(data){
         axios.get('/user/list?type='+ type)
             .then(res=>{
                 if(res.data.code == 0){
-                    console.log(res.data.data)
+                    
                     dispatch(userList(res.data.data))                 
                 }
             })

@@ -5,7 +5,7 @@ import { Card, WhiteSpace, WingBlank } from 'antd-mobile';
 
 class UserCard extends React.Component{
     static propTypes = {
-        userlist: PropTypes.func.isRequired,//类型检测，function,必穿
+        userlist: PropTypes.array.isRequired,//类型检测，function,必穿
     }
     render(){
         const Header = Card.Header;

@@ -23,6 +23,7 @@ class NavLinkBar extends React.Component{
                         selectedIcon={{uri:require(`./img/${v.icon}.png`)}}
                         selected={pathname === v.path}
                         onPress={()=>{
+                            console.log(v.path)
                             this.props.history.push(v.path )
                         }}
                        >

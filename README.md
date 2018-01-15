@@ -50,7 +50,7 @@ node server/server.js
 - 在`package.json`文件下设置`"proxy": "http://localhost:9093"`
 - web端`localhost:3000/login` 请求本地服务API `http://localhost:9093/user/login`
 
-> **cookie保存登录状态**
+> **前后端交互cookie保存登录状态**
 
 - 登录后服务端返回`cookie`，浏览器会自动存储在http中，这样就可以访问资源了
 - `express`依赖`cookie-parser`,安装`npm install cookie-parser --save`
@@ -83,6 +83,10 @@ node server/server.js
       })
   })
   ```
+> **浏览器cookie**
+- `Name`cookie标识 `Value`值 `Domain`当前cookie只在locahost域名下有效 `Path`域名资源地址 `Expires`过期时间 `Size` cookie大小`HTTP` httponly：js无法修改，对cookie的操作只能放到后端，安全性更高 `Secure`安全，https，`SameSite`当前这个域名下发出cookie，防御csrf攻击。
+- 安装`npm install browser-cookies --save`,[用法](https://www.npmjs.com/package/browser-cookies)
+
 >  **prop-types**
 
 - 属性类型检测,安装`npm install prop-types --save` [用法](http://www.css88.com/react/docs/typechecking-with-proptypes.html)

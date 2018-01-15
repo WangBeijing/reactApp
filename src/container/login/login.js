@@ -3,31 +3,21 @@ import Logo from '../../component/login/logo';
 import {List ,InputItem, WingBlank, WhiteSpace, Button} from 'antd-mobile';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
-
 import {login} from '../../redux/user.redux';
-
-class Hello extends React.Component{
-    render(){
-        return <h2>Hello i love react && redux</h2>
-    }
-}
-
-
-
-
-
+import reactForm from '../../component/react-form/react-from';//高阶组件
 
 @connect(
     state=>state.user,
     {login}
 )
+@reactForm
 class Login extends React.Component{
     constructor(props){
         super(props);
-        this.state={
-            user:'',
-            pwd:''
-        }
+        // this.state={
+        //     user:'',
+        //     pwd:''
+        // }
         this.register = this.register.bind(this)
         this.handleLogin = this.handleLogin.bind(this)
 
@@ -35,13 +25,13 @@ class Login extends React.Component{
     register(){
         this.props.history.push('/register')
     }
-    handleChange(key,val){
-        this.setState({
-            [key]:val
-        })
-    }
+    // handleChange(key,val){
+    //     this.setState({
+    //         [key]:val
+    //     })
+    // }
     handleLogin(){
-        this.props.login(this.state)
+        this.props.login(this.props.state)
     }
     render(){
         return (
@@ -52,10 +42,10 @@ class Login extends React.Component{
                     <List>
                         {this.props.msg?<p className="error-msg">{this.props.msg}</p>:null}
                         <InputItem 
-                        onChange={v=>this.handleChange('user',v)}
+                        onChange={v=>this.props.handleChange('user',v)}
                         >用户</InputItem>
                         <InputItem type="password"
-                        onChange={v=>this.handleChange('pwd',v)}
+                        onChange={v=>this.props.handleChange('pwd',v)}
                         >密码</InputItem>
                     </List>
                     <WhiteSpace />

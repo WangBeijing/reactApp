@@ -30,6 +30,9 @@ npm start // 本地访问 localhost:3000/login
 cd reactApp
 
 node server/server.js
+
+#链接mongo
+mongo
 ```
 
 ## 工具介绍
@@ -84,7 +87,15 @@ node server/server.js
   })
   ```
 > **浏览器cookie**
-- `Name`cookie标识 `Value`值 `Domain`当前cookie只在locahost域名下有效 `Path`域名资源地址 `Expires`过期时间 `Size` cookie大小`HTTP` httponly：js无法修改，对cookie的操作只能放到后端，安全性更高 `Secure`安全，https，`SameSite`当前这个域名下发出cookie，防御csrf攻击。
+- `Name`cookie标识 
+- `Value`值 
+- `Domain`当前cookie只在locahost域名下有效 
+- `Path`域名资源地址 
+- `Expires`过期时间 
+- `Size` cookie大小
+- `HTTP` httponly：js无法修改，对cookie的操作只能放到后端，安全性更高 
+- `Secure`安全，https，
+- `SameSite`当前这个域名下发出cookie，防御csrf攻击。
 - 安装`npm install browser-cookies --save`,[用法](https://www.npmjs.com/package/browser-cookies)
 
 >  **prop-types**

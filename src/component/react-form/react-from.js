@@ -9,7 +9,6 @@ export default function reactForm(Comp){
             this.handleChange = this.handleChange.bind(this);
         }
         handleChange(key,val){
-            console.log(key,val)
             this.setState({
                 [key]:val
             })

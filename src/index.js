@@ -14,9 +14,13 @@ import AuthRoute from './component/authroute/authroute';
 import Dashboard from './component/dashboard/dashboard';
 import BossInfo from './container/bossinfo/bossinfo';
 import Geniusinfo from './container/geniusinfo/geniusinfo';
+import Chat from './component/chat/chat';
 import reducers from './reducer'
 import './config';
 import './index.css';
+import User  from './component/user/user';
+import Boss from './component/boss/boss';
+
 const store = createStore(reducers, compose(
     applyMiddleware(thunk),
     window.devToolsExtension?window.devToolsExtension():f=>f
@@ -28,11 +32,14 @@ ReactDom.render(
              <div>
                  <AuthRoute></AuthRoute>
                  <Switch>                 
-                 <Route path='/bossinfo' component={BossInfo}></Route>
-                 <Route path='/geniusinfo' component={Geniusinfo}></Route>
-                 <Route path='/login' component={Login}></Route>
-                 <Route path='/register' component={Register}></Route>
-                 <Route component={Dashboard}></Route>
+                    <Route path='/bossinfo' component={BossInfo}></Route>
+                    <Route path='/geniusinfo' component={Geniusinfo}></Route>
+                    <Route path='/login' component={Login}></Route>
+                    <Route path='/register' component={Register}></Route>
+                    <Route path='/chat/:user' component={Chat}></Route>
+                    <Route component={Dashboard}></Route>
+                    {/* <Route path='/me' component={User}></Route>   */}
+                    {/* <Route path='/boss' component={Boss}></Route>                  */}
                  </Switch>
              </div>
         </BrowserRouter>

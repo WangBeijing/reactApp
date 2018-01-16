@@ -7,9 +7,6 @@ import Boss from '../../component/boss/boss';
 import Genius from '../../component/genius/genius';
 import User  from '../../component/user/user';
 
-
-
-
 function Msg(){
     return <h2>消息列表</h2>
 }
@@ -43,18 +40,15 @@ class Dashbord extends React.Component{
                 text:'消息',
                 icon:'msg',
                 title:'消息列表',
-                component:Msg,
-                
+                component:Msg,                
             },
             {
                 path:'/me',
                 text:'我',
                 icon:'user',
                 title:'个人中心',
-                component:User,
-                
+                component:User,                
             },
-
         ]
         return (
             <div>
@@ -64,12 +58,11 @@ class Dashbord extends React.Component{
                         {navList.map(v=>(
                             <Route key={v.path} path={v.path} component={v.component}></Route>
                         ))
-                        }
+                    }
                     </Switch>
                 </div>
-                <NavLinkBar data={navList}></NavLinkBar>
-            </div>
-            
+                <NavLinkBar data={navList}  ></NavLinkBar>
+            </div>            
         )
     }
 }

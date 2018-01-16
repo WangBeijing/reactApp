@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../component/login/logo';
+import Logo from '../../component/logo/logo';
 import {List ,InputItem, WingBlank, WhiteSpace, Button} from 'antd-mobile';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
@@ -20,7 +20,6 @@ class Login extends React.Component{
         // }
         this.register = this.register.bind(this)
         this.handleLogin = this.handleLogin.bind(this)
-
     }
     register(){
         this.props.history.push('/register')

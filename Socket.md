@@ -8,14 +8,24 @@
     + socket.io基于websocket双向通信协议，后端可以主动推送数据
     + 现在浏览器均支持websocket协议
 
-  - 配合express
-    + `Io = require('socket.io') (http) ` 安装`npm install socket.io`
-    + `io.on ` 监听时间
-    + `io.emit `触发时间
+  - Socket.io 配合express
+    + 安装 `npm install socket.io`
+    + `Io = require('socket.io')(http)`
+    + `io.on ` 监听时间 `io.emit `触发时间
+    +  
+    ```
+    const app = express();
+    ##Socket.io和express配合，需要Socket.io和http借口统一起来
+    const server = require('http').Server(app);//express server
+    const io = require('socket.io')(server);//server传给io对象
+    io.on('connection', function(socket){
+        console.log('user login')
+    })
+    ```
     
-  - Socket.io前端API
-  - 配合express 
-    + `import io from 'socket.io-client'` //客户端库 . 安装`npm install socket.io-client`
+  - Socket.io 客户端 前端API 
+    + 安装 `npm install socket.io-client --save`
+    + `import io from 'socket.io-client'` //客户端库 . 
     + `io.on`   监听时间
     + `io.emit` 触发事件  
 

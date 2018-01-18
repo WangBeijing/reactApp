@@ -20,7 +20,7 @@ import './config';
 import './index.css';
 import User  from './component/user/user';
 import Boss from './component/boss/boss';
-
+import Genius from './component/genius/genius';
 const store = createStore(reducers, compose(
     applyMiddleware(thunk),
     window.devToolsExtension?window.devToolsExtension():f=>f
@@ -39,6 +39,8 @@ ReactDom.render(
                     <Route path='/chat/:user' component={Chat}></Route>
                     <Route path='/me' component={User}></Route>  
                     <Route path='/boss' component={Boss}></Route>
+                    <Route path='/genius' component={Genius}></Route>
+                    
                     <Route component={Dashboard}></Route>
                                      
                  </Switch>

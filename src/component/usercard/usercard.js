@@ -14,7 +14,7 @@ class UserCard extends React.Component{
         userlist: PropTypes.array.isRequired,//类型检测，function,必传
     }
     handleClick(v){        
-        this.props.history.push(`/chat/${v.user}`)
+        this.props.history.push(`/chat/${v._id}`)
     }
     //onClick={()=>this.handleClick(v)}  
     render(){

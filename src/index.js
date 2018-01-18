@@ -38,8 +38,8 @@ ReactDom.render(
                     <Route path='/register' component={Register}></Route>
                     <Route path='/chat/:user' component={Chat}></Route>
                     <Route path='/me' component={User}></Route>  
-                    <Route path='/boss' component={Boss}></Route>
-                    <Route path='/genius' component={Genius}></Route>
+                    {/* <Route path='/boss' component={Boss}></Route> */}
+                    {/* <Route path='/genius' component={Genius}></Route> */}
                     
                     <Route component={Dashboard}></Route>
                                      

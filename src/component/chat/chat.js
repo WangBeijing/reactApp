@@ -1,10 +1,11 @@
 import React from 'react';
-import { List, InputItem ,NavBar, Icon} from 'antd-mobile';
+import { List, InputItem ,NavBar, Icon, Grid} from 'antd-mobile';
 import { connect } from 'react-redux';
 import { getMsgList, sendMsg , recvMsg} from '../../redux/chat.redux'
 
 import io from 'socket.io-client';//socket.io客户端
 import { user } from '../../redux/user.redux';
+import { getChatId } from '../../util';
 const socket = io('ws://localhost:9093');
 
 
@@ -22,6 +23,7 @@ class Chat extends React.Component{
     }
     componentDidMount(){
         if(!this.props.chat.chatmsg.length){
+            console.log(this.props.chat.unread)
             this.props.getMsgList()
             this.props.recvMsg()
         }
@@ -44,12 +46,20 @@ class Chat extends React.Component{
         this.setState({text:''})
     }
     render(){
+        const emoji = '😃 ❤ 😘 🙄 😊 🤔 😍 😂 👰'
+            .split(' ')
+            .filter(v=>v)
+            .map(v=>{text:v})
+
+
         const userid = this.props.match.params.user;
         const Item = List.Item;
         const users = this.props.chat.users;
         if(!users[userid]){
             return null
         }
+        const chatid = getChatId(userid, this.props.user._id)
+        const chatmsgs = this.props.chat.chatmsg.filter(v=>v.chatid==chatid);
         return (  
             <div id="chat-page">
                 <NavBar mode="dark"
@@ -60,7 +70,7 @@ class Chat extends React.Component{
                 >
                     {users[userid].name }
                 </NavBar>
-                {this.props.chat.chatmsg.map(v =>{ 
+                {chatmsgs.map(v =>{ 
                     const avatar = require(`../img/${users[v.from].avatar}.png`)                   
                     return v.from == userid?(
                         <List key={v._id}>
@@ -87,6 +97,12 @@ class Chat extends React.Component{
                         extra={<span onClick={()=>this.handleSubmit()}>发送</span>}
                         ></InputItem>
                     </List>
+                    <Grid 
+                    data={emoji}
+                    columnNum={9}
+                    carouselMaxRow={4}
+                    isCarousel={true}
+                    /> 
                 </div>
             </div>          
 

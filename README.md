@@ -158,8 +158,8 @@ mongo
   // 返回结果是一个数组 
   emoji.search('cof');
   ```
-  - 通过CSS插入
-    ```
-    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-    <i class="em em-baby"></i>
-    ```
+- 通过CSS插入
+  ```
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+  <i class="em em-baby"></i>
+  ```

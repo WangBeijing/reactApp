@@ -135,3 +135,31 @@ mongo
 - Emoji 的国际标准在 2015 年出台，截止2017年4月，列入 Unicode 的 Emoji 共有[2389个](http://www.unicode.org/emoji/charts/full-emoji-list.html)。
 - 目前，[苹果系统](https://emojipedia.org/apple/)、[安卓系统](https://emojipedia.org/google/)、[Twitter](https://twitter.github.io/twemoji/preview.html)、[Github](https://gist.github.com/rxaviers/7360908)、[Facebook](https://emojipedia.org/facebook/) 都有自己的 Emoji 实现。
 [emoji表情](https://emojipedia.org/)
+- emoji使用方式
+  - 最简单的方法复制/粘贴，`getEmoji.com` 选中一个 Emoji 贴在自己的文档即可。
+  - JavaScript插入Emoji,推荐使用 [node-emoji](https://www.npmjs.com/package/node-emoji) 这个库。
+  ```
+  var emoji = require('node-emoji');
+
+  // 返回 coffee 的 Emoji
+  emoji.get('coffee');
+
+  // 返回文字标签对应的 Emoji
+  // https://www.webpagefx.com/tools/emoji-cheat-sheet/
+  emoji.get(':fast_forward:');
+
+  // 将文字替换成 Emoji
+  emoji.emojify('I :heart: :coffee:!');
+
+  // 随机返回一个 Emoji 
+  emoji.random();
+
+  // 查询 Emoji
+  // 返回结果是一个数组 
+  emoji.search('cof');
+    ```
+  - 通过CSS插入
+    ```
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <i class="em em-baby"></i>
+    ```

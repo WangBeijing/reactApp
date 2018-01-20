@@ -131,7 +131,7 @@ mongo
 
 [x]
 
-##Emoji表情简介
+## Emoji表情简介
 - Emoji 的国际标准在 2015 年出台，截止2017年4月，列入 Unicode 的 Emoji 共有[2389个](http://www.unicode.org/emoji/charts/full-emoji-list.html)。
 - 目前，[苹果系统](https://emojipedia.org/apple/)、[安卓系统](https://emojipedia.org/google/)、[Twitter](https://twitter.github.io/twemoji/preview.html)、[Github](https://gist.github.com/rxaviers/7360908)、[Facebook](https://emojipedia.org/facebook/) 都有自己的 Emoji 实现。
 [emoji表情](https://emojipedia.org/)
@@ -157,7 +157,7 @@ mongo
   // 查询 Emoji
   // 返回结果是一个数组 
   emoji.search('cof');
-    ```
+  ```
   - 通过CSS插入
     ```
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">

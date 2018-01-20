@@ -6,16 +6,13 @@ import {Switch, Route} from 'react-router-dom'
 import Boss from '../../component/boss/boss';
 import Genius from '../../component/genius/genius';
 import User  from '../../component/user/user';
+import Msg from '../../component/msg/msg';
 
 import { getMsgList, recvMsg } from '../../redux/chat.redux'
 
-function Msg(){
-    return <h2>消息列表</h2>
-}
-
 @connect(
     state=>state,
-    {getMsgList, recvMsg} 
+    {getMsgList, recvMsg}
 )
 class Dashbord extends React.Component{
     componentDidMount(){
@@ -49,14 +46,14 @@ class Dashbord extends React.Component{
                 text:'消息',
                 icon:'msg',
                 title:'消息列表',
-                component:Msg,                
+                component:Msg,
             },
             {
                 path:'/me',
                 text:'我',
                 icon:'user',
                 title:'个人中心',
-                component:User,                
+                component:User,
             },
         ]
         return (
@@ -71,7 +68,7 @@ class Dashbord extends React.Component{
                     </Switch>
                 </div>
                 <NavLinkBar data={navList}  ></NavLinkBar>
-            </div>            
+            </div>
         )
     }
 }

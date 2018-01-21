@@ -111,7 +111,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules":{
+      "eqeqeq":["off"]
+    }
   },
   "proxy": "http://localhost:9093",
   "devDependencies": {

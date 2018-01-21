@@ -160,3 +160,22 @@ mongo
   <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   <i class="em em-baby"></i>
   ```
+
+  react遍历数组key
+
+
+
+
+  ## eslint代码规范
+
+  默认在package.json中有eslint配置`"eslintConfig": {"extends": "react-app"}`,继承reat-app,就是`Create React App`有个默认eslint配置。<br>
+  在此基础可以再加一些配置[官网](http://eslint.cn/)，针对`eslint eqeqeq: "error"`,要求使用 === 和 !== ,为了关闭它我们可以为此加一条规则[rules](http://eslint.cn/docs/rules/eqeqeq),级别划分为：0-off,1-warn,2error.<br>
+  ```
+  "eslintConfig": {
+    "extends": "react-app",
+    "rules":{
+      "eqeqeq":["off"]      //或者[0]标识关闭
+    }
+  }
+  ```
+>推荐使用github上[JavaScript Style Guide](https://github.com/airbnb/javascript)代码规范

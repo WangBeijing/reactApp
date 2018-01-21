@@ -8,7 +8,7 @@ export function getRedirectPath({type, avatar}){
     if( !avatar){
         url+='info'
     }
-    
+    //url= 'msg'
     return url
 }
 

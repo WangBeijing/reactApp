@@ -2,14 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { List , Badge} from 'antd-mobile';
 
+import { getMsgList } from '../../redux/chat.redux'
 
 @connect(
-  state=>state
+  state=>state,
+  {
+    getMsgList
+  }
 )
 class Msg extends React.Component{
   getLast(arr){
     return arr[arr.length-1]
   }
+  componentDidMount(){
+    if(!this.props.chat.chatmsg.length){
+        this.props.getMsgList()
+        //this.props.recvMsg()
+    }
+}
   render(){
     // if(!this.props.chat.chatmsg.length){
     //   return;

@@ -19,6 +19,7 @@ import reducers from './reducer'
 import './config';
 import './index.css';
 import User  from './component/user/user';
+import Msg  from './component/msg/msg';
 import Boss from './component/boss/boss';
 import Genius from './component/genius/genius';
 const store = createStore(reducers, compose(
@@ -37,9 +38,12 @@ ReactDom.render(
                     <Route path='/login' component={Login}></Route>
                     <Route path='/register' component={Register}></Route>
                     <Route path='/chat/:user' component={Chat}></Route>
-                    {/* <Route path='/me' component={User}></Route>  
+                    <Route path='/me' component={User}></Route>
+                    <Route path='/msg' component={Msg}></Route>  
                     <Route path='/boss' component={Boss}></Route>
-                    <Route path='/genius' component={Genius}></Route> */}
+                    <Route path='/genius' component={Genius}></Route>
+                    <Route path='/me' component={User}></Route>
+                    <Route path='/msg' component={Msg}></Route>  
                     <Route component={Dashboard}></Route>                                                                             
                  </Switch>
              </div>

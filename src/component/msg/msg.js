@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { List } from 'antd-mobile';
+import { List , Badge} from 'antd-mobile';
 
 
 @connect(
@@ -23,9 +23,14 @@ class Msg extends React.Component{
       mgsGroup[v.chatid] = mgsGroup[v.chatid] || []
       mgsGroup[v.chatid].push(v)
     })
-    // console.log(mgsGroup)
-    const chatList = Object.values(mgsGroup);
-    console.log(chatList)
+    //用户聊天信息的数组
+    const chatList = Object.values(mgsGroup).sort((a,b)=>{
+      //通过时间戳大小对比排序
+      const a_last = this.getLast(a).create_time;
+      const b_last = this.getLast(b).create_time;
+      return b_last-a_last;
+    });
+    
     //按聊天用户分组
     return (
       <div>
@@ -33,14 +38,20 @@ class Msg extends React.Component{
             {chatList.map(v=>{
               const lastItem = this.getLast(v)
               const targetId = v[0].from ==userid?v[0].to:v[0].from;
-
+              const unreadNum = v.filter(v=>!v.read && v.to == userid).length
+              //消息列表 头像 和 名字
               const name = userinfo[targetId] ? userinfo[targetId].name :'';
               const avatar = userinfo[targetId] ? userinfo[targetId].avatar :'';
               
               return (
                 <List key={lastItem._id}>
                 <Item key={lastItem._id}
+                  extra={<Badge text={unreadNum}></Badge>}
                   thumb={require(`../img/${userinfo[targetId].avatar}.png`)}
+                  arrow="horizontal"
+                  onClick={()=>{
+                    this.props.history.push(`/chat/${targetId}`)
+                  }}
                 >
                   {lastItem.content}  
                   <Brief>{name }</Brief>

@@ -21,9 +21,12 @@ cd reactApp
 npm install
 
 # 启动项目
-npm start // 本地访问 localhost:3000/login
+npm start 
 
 ```
+> [淘宝镜像](http://npm.taobao.org/) `$ npm install -g cnpm --registry=https://registry.npm.taobao.org`
+
+> 浏览器访问访问 localhost:3000/login
 
 ### 启动后台
 ```
@@ -39,14 +42,14 @@ mongo
 
 >  **nodemon**
 
-- 修改了服务端代码，node**服务器会自动重启**。
+- 修改了服务端代码,node**服务器会自动重启**。
 - 安装`npm install -g nodemon`,输入`nodemon server.js`
 
 >  **utility**
 
-- 本项目使用后台md5加密,加密方式：密码加盐再加密，加密算法为md5(md5(密码+String))
+- 本项目使用后台md5加密,加密方式:密码加盐再加密，加密算法为md5(md5(密码+String))
 - 安装`npm install utility --save-dev`
-- 当然在公司项目确保安全性前端将密码加密一次再发送服务端。
+- 当然在公司项目确保安全性前端将密码加密一次再发送服务端.
 
 > **proxy解决跨域**
 
@@ -100,7 +103,7 @@ mongo
 
 >  **prop-types**
 
-- 属性类型检测,安装`npm install prop-types --save` [用法](http://www.css88.com/react/docs/typechecking-with-proptypes.html)
+- Rect属性类型检测,安装`npm install prop-types --save` [用法](http://www.css88.com/react/docs/typechecking-with-proptypes.html)
 
 > **npm script**
 
@@ -119,22 +122,22 @@ mongo
 
 - 按照默认的配置文件启动.
   - `mongod --config /usr/local/etc/mongod.conf` mongod.conf的内容是关于MongoDB的设置
-
-- 首先需要连接到MongoDB service:
+- 首先需要连接到MongoDB
   - `mongo`
 - 插入数据:
-  - `db.test.insert({'name':'test'})` test为表名，如果是user表则为`db.user.insert()`
+  - `db.test.insert({'name':'test'})` test为表名,如果是user表则为`db.user.insert()`
 - 查看数据:
   - `db.test.find()`
 
-![](https://github.com/WangBeijing/reactApp/blob/master/src/component/img/boy.png)
-
 ## Emoji表情简介
-- [Emoji](https://emojipedia.org/) 的国际标准在 2015 年出台，截止2017年4月，列入 Unicode 的 Emoji 共有[2389个](http://www.unicode.org/emoji/charts/full-emoji-list.html)。
-- 目前，[苹果系统](https://emojipedia.org/apple/)、[安卓系统](https://emojipedia.org/google/)、[Twitter](https://twitter.github.io/twemoji/preview.html)、[Github](https://gist.github.com/rxaviers/7360908)、[Facebook](https://emojipedia.org/facebook/) 都有自己的 Emoji 实现。
+- [Emoji](https://emojipedia.org/) 的国际标准在 2015 年出台,截止2017年4月,列入Unicode的Emoji共有[2389个](http://www.unicode.org/emoji/charts/full-emoji-list.html).
+- 目前，[苹果系统](https://emojipedia.org/apple/)、[安卓系统](https://emojipedia.org/google/)、[Twitter](https://twitter.github.io/twemoji/preview.html)、[Github](https://gist.github.com/rxaviers/7360908)、[Facebook](https://emojipedia.org/facebook/) 都有自己的 Emoji 实现.
 - emoji使用方式
-  - 最简单的方法复制/粘贴，`getEmoji.com` 选中一个 Emoji 贴在自己的文档即可。
-  - JavaScript插入Emoji,推荐使用 [node-emoji](https://www.npmjs.com/package/node-emoji) 这个库。
+  - 最简单的方法复制/粘贴,`getEmoji.com` 选中一个 Emoji 贴在自己的文档即可.
+  ```
+  const emoji = '😃 😘 🙄 😊 🤔 😍 😂 👰 🐻 🍔 ⚽ 🌇 💡 🔣 🎌 📊 🚧 🇦🇺 😃 ❤ 😘 🙄 😊 🤔';
+  ```
+  - JavaScript插入Emoji,推荐使用 [node-emoji](https://www.npmjs.com/package/node-emoji) 这个库.
   ```
   var emoji = require('node-emoji');
 
@@ -155,21 +158,52 @@ mongo
   // 返回结果是一个数组 
   emoji.search('cof');
   ```
-- 通过CSS插入
+  - 通过CSS插入
   ```
   <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   <i class="em em-baby"></i>
   ```
 
-  react遍历数组key
-
-
-
+  ## react遍历数组key
 
   ## eslint代码规范
-
-  默认在package.json中有eslint配置`"eslintConfig": {"extends": "react-app"}`,继承reat-app,就是`Create React App`有个默认eslint配置。<br>
-  在此基础可以再加一些配置[官网](http://eslint.cn/)，针对`eslint eqeqeq: "error"`,要求使用 === 和 !== ,为了关闭它我们可以为此加一条规则[rules](http://eslint.cn/docs/rules/eqeqeq),级别划分为：0-off,1-warn,2error.<br>
+  eslint是一个开源的JavaScript代码检查工具,团队中使用eslint正是用来统一JavaScript代码风格.
+  ### 基础配置
+  首先引入eslint基础包,再加入webpack中对应的插件eslint-loader,然后在项目根目录下创建.eslintrc文件后进行eslint的配置<br>
+  通过.eslintrc文件规则配置,告诉eslint工具需要检查哪些[语法规则](http://eslint.cn/docs/rules/?spm=5176.11156381.0.0.42237161QnUxkl)，配置方式如下:
+  ```
+  "rules": [
+    "rule-name1": "0",
+    "rule-name2": "1",
+    "rule-name3": "2"
+  ]
+  ```
+  规则格式是"<规则名称>: <告警级别>"，告警级别分为三种:
+  - "0"表示忽略问题，等同于"off"
+  - "1"表示给出警告，等同于"warn"
+  - "2"表示直接报错，等同于"error"
+  引入并配置好eslint和eslint-loader后，就可以开始添加webpack的相关配置了:
+  ```
+  preLoaders: [
+    {
+        test: /\.js$/,  // 检测所有的js文件
+        loader: "eslint-loader", // 使用eslint插件
+        exclude: [   // 排除第三方文件
+            /node_modules/,
+            /app\/lib/
+        ]
+    }
+  ]
+  ```
+  让webpack在打包文件之前，对除第三方外的js文件用eslint进行检查。<br>
+  完成上述配置后，webpack在构建时就能自动对js代码用eslint进行检查了。<br>
+  注：由于webpack在默认配置下遇到error并不会抛出错误终止代码打包，需要在webpack命令上添加bail参数让webpack抛出错误:
+  ```
+  webpack --bail --progress --colors --config webpack.config.js
+  ```
+    
+  默认在package.json中有eslint配置`"eslintConfig": {"extends": "react-app"}`继承reat-app,是`Create React App`默认eslint配置。<br>
+  在此基础可以再加一些配置[官网地址](http://eslint.cn/),针对`eslint eqeqeq: "error"`,eslint要求使用 `=== && !==` ,为了关闭提示可以为此增加一条rules[更多规则](http://eslint.cn/docs/rules/eqeqeq),提示级别划分为0-off,1-warn,2-error.<br>
   ```
   "eslintConfig": {
     "extends": "react-app",
@@ -178,4 +212,22 @@ mongo
     }
   }
   ```
->推荐使用github上[JavaScript Style Guide](https://github.com/airbnb/javascript)代码规范
+>推荐使用Github上airbnb[JavaScript Style Guide](https://github.com/airbnb/javascript)代码规范
+
+ ## async、await优化异步代码
+从最早处理使用setTimeout处理异步会造成call hell(回调地狱)使代码变得非常臃肿不可读。
+衍生出了Promise,axios默认的形式。用.then来处理成功的回调优化写异步的形式但还是会出点.then().then()多个情况。
+async+await配合使用,await必须在async内部。
+```
+export function readMsg(from){
+    return async (dispatch,getState)=>{
+        //await确保同步完成之后再执行下面的代码,并且把返回值放到res里。
+        const res = await axios.post('/user/readmsg',{from})
+        const userid = getState().user._id;
+        if(res.status==200&& res.data.code == 0){
+            dispatch(msgRead({userid, from, num:res.data.num}))
+        }
+    }
+}
+```
+>这样看起来代码并没有异步的感觉,全都是按照同步的顺序来编写。

@@ -53,14 +53,14 @@ mongo
 
 >  **nodemon**
 
-- 修改了服务端代码,node**服务器会自动重启**。
-- 安装`npm install -g nodemon`,输入`nodemon server.js`
+- 修改了服务端代码,node服务器会自动重启
+- 安装`npm install -g nodemon`输入`nodemon server.js`
 
 >  **utility**
 
 - 本项目使用后台md5加密,加密方式:密码加盐再加密，加密算法为md5(md5(密码+String))
 - 安装`npm install utility --save-dev`
-- 当然在公司项目确保安全性前端将密码加密一次再发送服务端.
+- 当然在公司项目确保安全性前端将密码加密一次再发送服务端
 
 > **proxy解决跨域**
 
@@ -71,7 +71,7 @@ mongo
 
 - 登录后服务端返回`cookie`，浏览器会自动存储在http中，这样就可以访问资源了
 - `express`依赖`cookie-parser`,安装`npm install cookie-parser --save`
-- 登录时，服务端在DB中查到相应的记录，并将记录的主键id写入到cookie中返回给前端作为通信状态标识。
+- 登录时，服务端在DB中查到相应的记录，并将记录的主键id写入到cookie中返回给前端作为通信状态标识
   ```
   User.findOne({user, pwd},{'pwd': 0}, function(err, doc){
     if(err){}
@@ -109,17 +109,17 @@ mongo
 - `Size` cookie大小
 - `HTTP` httponly：js无法修改，对cookie的操作只能放到后端，安全性更高
 - `Secure`安全，https，
-- `SameSite`当前这个域名下发出cookie，防御csrf攻击。
-- 安装`npm install browser-cookies --save`,[用法](https://www.npmjs.com/package/browser-cookies)
+- `SameSite`当前这个域名下发出cookie，防御csrf攻击
+- 安装[browser-cookies](https://www.npmjs.com/package/browser-cookies)`npm install browser-cookies --save`
 
 >  **prop-types**
 
-- Rect属性类型检测,安装`npm install prop-types --save` [用法](http://www.css88.com/react/docs/typechecking-with-proptypes.html)
+- React [prop-types](http://www.css88.com/react/docs/typechecking-with-proptypes.html)属性类型检测,安装`npm install prop-types --save`
 
 > **npm script**
 
 - 前端工作流，创建自定义命令，npm run 执行自定义命令。
-- 安装`cross-env`,`npm install cross-env --save-dev`,在`NODE_ENV=production`前面添加`cross-env`就可以了
+- 安装`cross-env`,`npm install cross-env --save-dev`在`NODE_ENV=production`前面添加`cross-env`就可以了
 - 在js文件中使用`process.env.ENV_CONFIG`就可以接受自定义参数了。
   ```
   "scripts":{
@@ -130,11 +130,6 @@ mongo
   ```
 
 ## 后台mongodb数据库
-
-- 按照默认的配置文件启动.
-  - `mongod --config /usr/local/etc/mongod.conf` mongod.conf的内容是关于MongoDB的设置
-- 首先需要连接到MongoDB
-  - `mongo`
 - 插入数据:
   - `db.test.insert({'name':'test'})` test为表名,如果是user表则为`db.user.insert()`
 - 查看数据:
@@ -180,8 +175,10 @@ mongo
   ## eslint代码规范
   eslint是一个开源的JavaScript代码检查工具,团队中使用eslint正是用来统一JavaScript代码风格.
   ### 基础配置
-  首先引入eslint基础包,再加入webpack中对应的插件eslint-loader,然后在项目根目录下创建.eslintrc文件后进行eslint的配置<br>
-  通过.eslintrc文件规则配置,告诉eslint工具需要检查哪些[语法规则](http://eslint.cn/docs/rules/?spm=5176.11156381.0.0.42237161QnUxkl)，配置方式如下:
+  1.首先引入eslint基础包<br>
+  2.再加入webpack中对应的插件eslint-loader<br>
+  3.然后在项目根目录下创建.eslintrc文件后进行eslint的配置<br>
+  通过`.eslintrc`文件规则配置,告诉eslint工具需要检查哪些[语法规则](http://eslint.cn/docs/rules/?spm=5176.11156381.0.0.42237161QnUxkl)，配置方式如下:
   ```
   "rules": [
     "rule-name1": "0",
@@ -246,22 +243,17 @@ export function readMsg(from){
 
 ## 利用babel-cli搭建支持ES6的node环境
  Node.js本身对ES6的特性支持的不够完备,那么需要借助于babel工具来完成,现在都直接写ES6的代码
- - 1.使用babel-cli提供的babel转换成ES5
- - 2.或者使用babel-node直接运行ES6的代码
+ 1.使用[babel-cli](https://babeljs.cn/docs/usage/cli/)提供的babel转换成ES5<br>
+ 2.或者使用babel-node直接运行ES6的代码<br>
 
 ### 安装 `npm install babel-cli --save`
 babel-cli有两个主要的命令需要用到
-  - babel：按照“.babelrc“文件转码js文件
-  - babel-node：提供一个支持ES6的REPL环境，支持Node的REPL环境的所有功能，可以直接运行ES6代码 `babel-node es6.js`
-### babel-node
-`babel-node`随`babel-cli`一起安装,然后，执行babel-node就进入PEPL环境,然后改写package.json
+  - babel：按照[.babelrc](https://babeljs.cn/docs/usage/babelrc/)文件转码js文件`babel es6.js`
+  - babel-node：提供一个支持ES6的REPL环境,支持Node的REPL环境的所有功能,可以直接运行ES6代码`babel-node es6.js`
+#### [babel-node](https://babeljs.cn/docs/usage/cli/#babel-node)
+`babel-node`随`babel-cli`一起安装,然后执行babel-node就进入PEPL环境,改写package.json
 ```
 "scripts": {
-    "start": "node scripts/start.js",
-    "server1": "nodemon server/server.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
     "server": "NODE_ENV=test  nodemon --exec babel-node -- server/server.js"
-
-  },
+  }
 ```

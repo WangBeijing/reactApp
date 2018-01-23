@@ -21,10 +21,10 @@ cd reactApp
 npm install
 
 # 启动项目
-npm start 
+npm start
 
 ```
-> [淘宝镜像](http://npm.taobao.org/) `$ npm install -g cnpm --registry=https://registry.npm.taobao.org`
+> `$ npm install -g cnpm --registry=https://registry.npm.taobao.org` [淘宝镜像](http://npm.taobao.org/)
 
 > 浏览器访问访问 localhost:3000/login
 
@@ -32,9 +32,20 @@ npm start
 ```
 cd reactApp
 
-node server/server.js
+nodemon server/server.js
+```
+
+### 链接数据库
+```
+# 驱动配置文件
+mongod --config /usr/local/etc/mongod.conf
 
 #链接mongo
+mongo
+
+或者
+brew services start mongodb
+brew services stop mongodb
 mongo
 ```
 
@@ -90,13 +101,13 @@ mongo
   })
   ```
 > **浏览器cookie**
-- `Name`cookie标识 
-- `Value`值 
-- `Domain`当前cookie只在locahost域名下有效 
-- `Path`域名资源地址 
-- `Expires`过期时间 
+- `Name`cookie标识
+- `Value`值
+- `Domain`当前cookie只在locahost域名下有效
+- `Path`域名资源地址
+- `Expires`过期时间
 - `Size` cookie大小
-- `HTTP` httponly：js无法修改，对cookie的操作只能放到后端，安全性更高 
+- `HTTP` httponly：js无法修改，对cookie的操作只能放到后端，安全性更高
 - `Secure`安全，https，
 - `SameSite`当前这个域名下发出cookie，防御csrf攻击。
 - 安装`npm install browser-cookies --save`,[用法](https://www.npmjs.com/package/browser-cookies)
@@ -151,11 +162,11 @@ mongo
   // 将文字替换成 Emoji
   emoji.emojify('I :heart: :coffee:!');
 
-  // 随机返回一个 Emoji 
+  // 随机返回一个 Emoji
   emoji.random();
 
   // 查询 Emoji
-  // 返回结果是一个数组 
+  // 返回结果是一个数组
   emoji.search('cof');
   ```
   - 通过CSS插入
@@ -179,10 +190,11 @@ mongo
   ]
   ```
   规则格式是"<规则名称>: <告警级别>"，告警级别分为三种:
-  - "0"表示忽略问题，等同于"off"
-  - "1"表示给出警告，等同于"warn"
-  - "2"表示直接报错，等同于"error"
-  引入并配置好eslint和eslint-loader后，就可以开始添加webpack的相关配置了:
+  - "0"表示忽略问题,等同于"off"
+  - "1"表示给出警告,等同于"warn"
+  - "2"表示直接报错,等同于"error"
+
+  引入并配置好eslint和eslint-loader后,就可以开始添加webpack的相关配置了:
   ```
   preLoaders: [
     {
@@ -196,12 +208,12 @@ mongo
   ]
   ```
   让webpack在打包文件之前，对除第三方外的js文件用eslint进行检查。<br>
-  完成上述配置后，webpack在构建时就能自动对js代码用eslint进行检查了。<br>
-  注：由于webpack在默认配置下遇到error并不会抛出错误终止代码打包，需要在webpack命令上添加bail参数让webpack抛出错误:
+  完成上述配置后,webpack在构建时就能自动对js代码用eslint进行检查了。<br>
+  注:由于webpack在默认配置下遇到error并不会抛出错误终止代码打包,需要在webpack命令上添加bail参数让webpack抛出错误:
   ```
   webpack --bail --progress --colors --config webpack.config.js
   ```
-    
+
   默认在package.json中有eslint配置`"eslintConfig": {"extends": "react-app"}`继承reat-app,是`Create React App`默认eslint配置。<br>
   在此基础可以再加一些配置[官网地址](http://eslint.cn/),针对`eslint eqeqeq: "error"`,eslint要求使用 `=== && !==` ,为了关闭提示可以为此增加一条rules[更多规则](http://eslint.cn/docs/rules/eqeqeq),提示级别划分为0-off,1-warn,2-error.<br>
   ```
@@ -215,9 +227,9 @@ mongo
 >推荐使用Github上airbnb[JavaScript Style Guide](https://github.com/airbnb/javascript)代码规范
 
  ## async、await优化异步代码
-从最早处理使用setTimeout处理异步会造成call hell(回调地狱)使代码变得非常臃肿不可读。
-衍生出了Promise,axios默认的形式。用.then来处理成功的回调优化写异步的形式但还是会出点.then().then()多个情况。
-async+await配合使用,await必须在async内部。
+从最早处理使用setTimeout处理异步会造成call hell(回调地狱)使代码变得非常臃肿不可读<br>
+衍生出了Promise,也就是axios默认的形式,用.then来处理成功的回调优化写异步的形式但还是会出点.then().then()多个情况<br>
+async+await配合使用,await必须在async内部<br>
 ```
 export function readMsg(from){
     return async (dispatch,getState)=>{
@@ -231,3 +243,25 @@ export function readMsg(from){
 }
 ```
 >这样看起来代码并没有异步的感觉,全都是按照同步的顺序来编写。
+
+## 利用babel-cli搭建支持ES6的node环境
+ Node.js本身对ES6的特性支持的不够完备,那么需要借助于babel工具来完成,现在都直接写ES6的代码
+ - 1.使用babel-cli提供的babel转换成ES5
+ - 2.或者使用babel-node直接运行ES6的代码
+
+### 安装 `npm install babel-cli --save`
+babel-cli有两个主要的命令需要用到
+  - babel：按照“.babelrc“文件转码js文件
+  - babel-node：提供一个支持ES6的REPL环境，支持Node的REPL环境的所有功能，可以直接运行ES6代码 `babel-node es6.js`
+### babel-node
+`babel-node`随`babel-cli`一起安装,然后，执行babel-node就进入PEPL环境,然后改写package.json
+```
+"scripts": {
+    "start": "node scripts/start.js",
+    "server1": "nodemon server/server.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom",
+    "server": "NODE_ENV=test  nodemon --exec babel-node -- server/server.js"
+
+  },
+```

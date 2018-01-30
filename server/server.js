@@ -27,13 +27,41 @@ io.on('connection', function(socket){
 
 
 const userRouter = require('./user')
+// app.all('*', function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     next();
+// });
 
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use('/user',userRouter)
+
+//用path解决相对的路径的问题
+//path.resolve把相对路径变成绝对路径
+
+const path = require('path');
+//2.设置中间件
+//前端开发port3000,后端port9093，最终上线只能一个端口，如何在9093端口访问打包后的应用这是关键。
+app.use(function(req, res, next){
+    //设置白名单,user || static 开始的
+    if(req.url.startsWith('/user/') || req.url.startsWith('/static/')){
+        return next()
+    }
+    //否则就是需要渲染的文件
+    return res.sendFile(path.resolve('build/index.html'))
+})
+//1.访问／开头设置静态资源访问地址，通过中间件的形式转发（白名单）
+app.use('/',express.static(path.resolve('build')))
+
+
 app.get('/',function(req,res){
     res.send('<h1>Hello world</h1>')
 })
 server.listen(9093,()=>{
     console.log('Node app start at port 9093')
 })
+
+//1.购买域名
+//2.dns解析到服务器ip
+//3.安装nginx
+//4.使用pm2管理node进程

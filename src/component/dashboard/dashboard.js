@@ -61,10 +61,15 @@ class Dashbord extends React.Component{
                 <NavBar className="fixd-header" mode='dard'>{navList.find(v=>v.path == pathname ).title}</NavBar>
                 <div style={{marginTop:45}}>
                     <Switch>
-                        {navList.map(v=>(
+                        {/* {navList.map(v=>(
                             <Route key={v.path} path={v.path} component={v.component}></Route>
-                        ))
-                    }
+                            ))
+                        } */}
+                         <Route  path='/boss' component={Boss}></Route>
+                         <Route  path='/genius' component={Genius}></Route>
+                         <Route  path='/msg' component={Msg}></Route>
+                         <Route  path='/me' component={User}></Route>
+                         
                     </Switch>
                 </div>
                 <NavLinkBar data={navList}  ></NavLinkBar>

@@ -110,7 +110,6 @@ mongo
 - `HTTP` httponly：js无法修改，对cookie的操作只能放到后端，安全性更高
 - `Secure`安全，https，
 - `SameSite`当前这个域名下发出cookie，防御csrf攻击
-- 安装[browser-cookies](https://www.npmjs.com/package/browser-cookies)`npm install browser-cookies --save`
 
 >  **prop-types**
 
@@ -246,7 +245,7 @@ export function readMsg(from){
  1.使用[babel-cli](https://babeljs.cn/docs/usage/cli/)提供的babel转换成ES5<br>
  2.或者使用babel-node直接运行ES6的代码<br>
 
-### 安装 `npm install babel-cli --save`
+#### 安装 `npm install babel-cli --save`
 babel-cli有两个主要的命令需要用到
   - babel：按照[.babelrc](https://babeljs.cn/docs/usage/babelrc/)文件转码js文件`babel es6.js`
   - babel-node：提供一个支持ES6的REPL环境,支持Node的REPL环境的所有功能,可以直接运行ES6代码`babel-node es6.js`
